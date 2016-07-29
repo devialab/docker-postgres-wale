@@ -1,7 +1,12 @@
 FROM postgres:9.5.2
 MAINTAINER Devialab
 
-RUN apt-get update && apt-get install -y python-pip python-dev lzop pv daemontools
+RUN apt-get update && apt-get install -y python python-pip python-dev lzop pv daemontools
+
+RUN pip install --upgrade pip
+RUN pip install --upgrade six
+RUN pip install --upgrade requests
+
 RUN pip install wal-e
 
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
