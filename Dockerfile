@@ -1,5 +1,5 @@
 FROM postgres:9.5.2
-MAINTAINER Manuel Familia
+MAINTAINER Devialab
 
 RUN apt-get update && apt-get install -y python-pip python-dev lzop pv daemontools
 RUN easy_install wal-e
