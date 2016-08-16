@@ -8,6 +8,11 @@ set_listen_addresses() {
 	sed -ri "s/^#?(listen_addresses\s*=\s*)\S+/\1'$sedEscapedValue'/" "$PGDATA/postgresql.conf"
 }
 
+# Create environment script for later use within cron jobs
+printenv | sed 's/^\(.*\)$/export \1/g' > /env.sh
+chmod +x /env.sh
+
+
 if [ "$1" = 'postgres' ]; then
 	mkdir -p "$PGDATA"
 	chown -R postgres "$PGDATA"

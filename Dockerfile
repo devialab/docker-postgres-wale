@@ -17,3 +17,7 @@ COPY scripts/docker-entrypoint.sh /docker-entrypoint.sh
 
 ADD scripts/fix-acl.sh /docker-entrypoint-initdb.d/
 ADD scripts/setup-wale.sh /docker-entrypoint-initdb.d/
+
+ADD crontab/wal-e /etc/cron.d/wal-e
+RUN chmod 0644 /etc/cron.d/wal-e
+RUN touch /var/log/cron.log

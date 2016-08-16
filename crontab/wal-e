@@ -1,0 +1,2 @@
+0 9 * * * root . /env.sh; /usr/local/bin/wal-e backup-push /var/lib/postgresql/data >> /var/log/cron.log 2>&1
+30 9 * * * root . /env.sh; /usr/local/bin/wal-e delete --confirm retain 10
