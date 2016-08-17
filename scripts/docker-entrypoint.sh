@@ -9,7 +9,7 @@ set_listen_addresses() {
 }
 
 # Create environment script for later use within cron jobs
-printenv | sed 's/^\(.*\)$/export \1/g' > /env.sh
+printenv | sed 's/^\(.*\)=\(.*\)$/export \1="\2"/g' > /env.sh
 chmod +x /env.sh
 
 
